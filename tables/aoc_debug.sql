@@ -1,4 +1,4 @@
-create sequence aoc_debug_s start with 1;
+create sequence aoc_debug_s start with 1 increment by 1;
 /
 create table aoc_debug (
     log_id number not null,
