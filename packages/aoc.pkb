@@ -182,15 +182,20 @@ create or replace package body aoc as
     --
     procedure get_input is
         --
+        pragma autonomous_transaction;
         --
     begin
+        --
+        delete aoc_input where 1 = 1;
         --
         insert into aoc_input
         select line, content
         from aoc_input_all
         where year = g_year
-          and DAY = g_day
+          and day = g_day
           and version = g_version;
+        --
+        commit;
         --
     end get_input;
     --

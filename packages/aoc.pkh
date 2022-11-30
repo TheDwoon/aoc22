@@ -1,5 +1,44 @@
 create or replace package aoc as
     --
+    day00 number :=  0;
+    day01 number :=  1;
+    day02 number :=  2;
+    day03 number :=  3;
+    day04 number :=  4;
+    day05 number :=  5;
+    day06 number :=  6;
+    day07 number :=  7;
+    day08 number :=  8;
+    day09 number :=  9;
+    day10 number := 10;
+    day11 number := 11;
+    day12 number := 12;
+    day13 number := 13;
+    day14 number := 14;
+    day15 number := 15;
+    day16 number := 16;
+    day17 number := 17;
+    day18 number := 18;
+    day19 number := 19;
+    day20 number := 20;
+    day21 number := 21;
+    day22 number := 22;
+    day23 number := 23;
+    day24 number := 24;
+    day25 number := 25;
+    --
+    task   number := 0;
+    test01 number := 1;
+    test02 number := 2;
+    test03 number := 3;
+    test04 number := 4;
+    test05 number := 5;
+    test06 number := 6;
+    test07 number := 7;
+    test08 number := 8;
+    test09 number := 9;
+    --
+    --
     type input_r is record
                     (
                         year    number,
