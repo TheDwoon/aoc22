@@ -1,0 +1,26 @@
+create or replace package aoc_parser as
+    --
+    g_parser_exception exception;
+    --
+    op_literal number := 1;
+    op_number number := 2;
+    op_word number := 3;
+    --
+    --
+    type rule_r is record (
+        rule_id number,
+        op_code number,
+        name varchar2(64),
+        argument varchar2(512),
+        discard boolean
+    );
+    --
+    --
+    function add_rule (
+        p_op_code  in number,
+        p_name     in varchar2,
+        p_argument in varchar2,
+        p_discard in boolean := false
+    ) return number;
+    --
+end;
