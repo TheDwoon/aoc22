@@ -63,6 +63,8 @@ create or replace package aoc as
         p_level in number default 10
     );
     --
+    procedure drop_input;
+    --
     procedure load_input(
         p_content in varchar2
     );

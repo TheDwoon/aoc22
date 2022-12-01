@@ -76,6 +76,19 @@ create or replace package body aoc as
         --
     end debug;
     --
+    procedure drop_input is
+        --
+        --
+    begin
+        --
+        delete
+        from aoc_input_all
+        where year = g_year
+          and day = g_day
+          and version = g_version;
+        --
+    end;
+    --
     procedure load_input(
         p_content in varchar2
     ) is

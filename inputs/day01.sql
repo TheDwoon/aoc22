@@ -1,6 +1,7 @@
 begin
     --
     aoc.init(2022, aoc.day01, aoc.test01);
+    aoc.drop_input;
     --
     aoc.load_input('1000');
     aoc.load_input('2000');
@@ -20,7 +21,6 @@ begin
     --
     aoc.init(2022, aoc.day01, aoc.puzzle);
     --
-    aoc.load_input('');
     aoc.load_input('5794');
     aoc.load_input('5879');
     aoc.load_input('4899');
@@ -2269,6 +2269,7 @@ begin
     aoc.load_input('2010');
     aoc.load_input('2244');
     aoc.load_input('8805');
-    aoc.load_input('');
+    --
+    commit;
     --
 end;
