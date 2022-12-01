@@ -26,17 +26,25 @@ declare
         from elf_snack_sum
         order by snack_sum desc;
     --
-    solution_part1 cs_elf_snack_sum%rowtype;
+    first_elf cs_elf_snack_sum%rowtype;
+    second_elf cs_elf_snack_sum%rowtype;
+    third_elf cs_elf_snack_sum%rowtype;
 begin
     --
     aoc.init(2022, aoc.day01, aoc.puzzle);
     aoc.get_input;
     --
     open cs_elf_snack_sum;
-    fetch cs_elf_snack_sum into solution_part1;
+    fetch cs_elf_snack_sum into first_elf;
+    fetch cs_elf_snack_sum into second_elf;
+    fetch cs_elf_snack_sum into third_elf;
     close cs_elf_snack_sum;
     --
-    aoc.debug('day01', 'part1', 'Most snacks has elf ' || solution_part1.elf
-                                    || ' with ' || solution_part1.snack_sum || ' calories');
+    aoc.debug('day01', 'part1', 'Most snacks has elf ' || first_elf.elf
+                                    || ' with ' || first_elf.snack_sum || ' calories');
+    --
+    aoc.debug('day01', 'part2', 'The elfs are: '
+                                    || first_elf.elf || ', ' || second_elf.elf || ', ' || third_elf.elf
+                                    || ' with ' || (first_elf.snack_sum + second_elf.snack_sum + third_elf.snack_sum) || ' calories');
     --
 end;
