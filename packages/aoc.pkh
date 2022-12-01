@@ -27,7 +27,7 @@ create or replace package aoc as
     day24 number := 24;
     day25 number := 25;
     --
-    task   number := 0;
+    puzzle number := 0;
     test01 number := 1;
     test02 number := 2;
     test03 number := 3;
