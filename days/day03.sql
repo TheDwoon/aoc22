@@ -31,6 +31,7 @@ declare
     t_backpack backpack_t;
     l_common_item varchar2(1);
     l_priority number;
+    l_idx number;
     l_part1 number := 0;
     l_part2 number := 0;
     --
@@ -76,6 +77,44 @@ declare
         --
     end;
     --
+    function get_common_item(
+        p_b1 in varchar2,
+        p_b2 in varchar2,
+        p_b3 in varchar2
+    ) return varchar2 is
+        --
+        l_size1 number := length(p_b1);
+        l_size2 number := length(p_b2);
+        l_size3 number := length(p_b3);
+        --
+    begin
+        --
+        for i in 1..l_size1 loop
+            --
+            for j in 1..l_size2 loop
+                --
+                if substr(p_b1, i, 1) = substr(p_b2, j, 1) then
+                    --
+                    for k in 1..l_size3 loop
+                        --
+                        if substr(p_b2, j, 1) = substr(p_b3, k, 1) then
+                            --
+                            return substr(p_b3, k, 1);
+                            --
+                        end if;
+                        --
+                    end loop;
+                    --
+                end if;
+                --
+            end loop;
+            --
+        end loop;
+        --
+        return null;
+        --
+    end;
+    --
 begin
     --
     aoc.init(2022, aoc.day03, aoc.puzzle);
@@ -97,15 +136,16 @@ begin
     --
     aoc.debug(g_package, g_part1, 'Part 1: ' || l_part1);
     --
+    l_idx := t_backpack.first;
+    while l_idx + 2 <= t_backpack.last loop
+        --
+        l_common_item := get_common_item(t_backpack(l_idx).content, t_backpack(l_idx + 1).content, t_backpack(l_idx + 2).content);
+        l_part2 := l_part2 + get_score(l_common_item);
+        --
+        l_idx := l_idx + 3;
+        --
+    end loop;
+    --
+    aoc.debug(g_package, g_part1, 'Part 2: ' || l_part2);
+    --
 end;
-
-select ascii('p') from dual;
-
-with chars as (
-    select 'a' as c from dual union all
-    select 'z' as c from dual union all
-    select 'A' as c from dual union all
-    select 'Z' as c from dual
-)
-select c, ascii(c)
-from chars
